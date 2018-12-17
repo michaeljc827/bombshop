@@ -30,10 +30,20 @@ export default class Shop extends React.Component {
     }
 
     updateInput(evt){
-        let data = this.state.products
+        let data = this.state.products;
         this.setState({
             "products": data,
             "inputValue": evt.target.value
+        });
+    }
+
+    removeProduct(id){
+        let data = this.state.products
+        data = data.filter( (a) => {
+            return a.id != id;
+        });
+        this.setState( {
+            "products" : data
         });
     }
 
@@ -48,7 +58,7 @@ export default class Shop extends React.Component {
                     <input type="text" placeholder="Item Name" onChange={ evt => { this.updateInput(evt) }}/>
                     <button type="button" onClick={() => { this.addProduct() } }>Add Item</button>
                 </div>
-                <ProductsTable products={this.state.products}/>
+                <ProductsTable products={this.state.products} removeProductFunc={ (id) => this.removeProduct(id) } />
             </div>
 
         </div>
@@ -56,3 +66,4 @@ export default class Shop extends React.Component {
     }
 
 }
+``

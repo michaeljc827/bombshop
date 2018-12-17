@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -106,7 +106,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/link */ "next/link");
 /* harmony import */ var next_link__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(next_link__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/michaelchavez/Desktop/BombShop/components/Header.js";
+var _jsxFileName = "/Users/michaelchavez/Desktop/ReactProjects/BombShop/components/Header.js";
 
 
 var linkStyle = {
@@ -173,111 +173,53 @@ var Header = function Header() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ProductsTable; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-var _jsxFileName = "/Users/michaelchavez/Desktop/BombShop/components/ProductsTable.js";
+var _jsxFileName = "/Users/michaelchavez/Desktop/ReactProjects/BombShop/components/ProductsTable.js";
 
 
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var ProductsTable = function ProductsTable(props) {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 6
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
+    className: "table",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 8
+    },
+    __self: this
+  }, props.products.map(function (product, i) {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
+      key: product.id,
+      onClick: function onClick() {
+        props.removeProductFunc(product.id);
+      },
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 12
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 13
+      },
+      __self: this
+    }, product.name));
+  }))));
+};
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-var ProductsTable =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(ProductsTable, _React$Component);
-
-  function ProductsTable() {
-    _classCallCheck(this, ProductsTable);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(ProductsTable).call(this));
-  }
-
-  _createClass(ProductsTable, [{
-    key: "componentWillMount",
-    value: function componentWillMount() {
-      this.setState({
-        "products": this.props.products
-      });
-    }
-  }, {
-    key: "removeProduct",
-    value: function removeProduct(id) {
-      var data = this.state.products;
-      console.log("Filtering for " + id, data);
-      data = data.filter(function (a, i) {
-        return a.id != id;
-      });
-      this.setState({
-        "products": data
-      });
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this = this;
-
-      console.log("Rendering table with", this.state.products);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 31
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
-        className: "table",
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 32
-        },
-        __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 33
-        },
-        __self: this
-      }, this.state.products.map(function (product, i) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", {
-          key: product.id,
-          onClick: function onClick() {
-            _this.removeProduct(product.id);
-          },
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 37
-          },
-          __self: this
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", {
-          __source: {
-            fileName: _jsxFileName,
-            lineNumber: 38
-          },
-          __self: this
-        }, product.name));
-      }))));
-    }
-  }]);
-
-  return ProductsTable;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-
+/* harmony default export */ __webpack_exports__["default"] = (ProductsTable);
 
 /***/ }),
 
@@ -299,7 +241,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_ProductsTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProductsTable */ "./components/ProductsTable.js");
 /* harmony import */ var _static_mock_data_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../static/mock-data.json */ "./static/mock-data.json");
 var _static_mock_data_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../static/mock-data.json */ "./static/mock-data.json", 1);
-var _jsxFileName = "/Users/michaelchavez/Desktop/BombShop/pages/shop.js";
+var _jsxFileName = "/Users/michaelchavez/Desktop/ReactProjects/BombShop/pages/shop.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -369,6 +311,17 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "removeProduct",
+    value: function removeProduct(id) {
+      var data = this.state.products;
+      data = data.filter(function (a) {
+        return a.id != id;
+      });
+      this.setState({
+        "products": data
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -377,20 +330,20 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 44
+          lineNumber: 54
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 45
+          lineNumber: 55
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 46
+          lineNumber: 56
         },
         __self: this
       }, "Products in Stock"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -399,7 +352,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 47
+          lineNumber: 57
         },
         __self: this
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -410,7 +363,7 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 48
+          lineNumber: 58
         },
         __self: this
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -420,14 +373,17 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 49
+          lineNumber: 59
         },
         __self: this
       }, "Add Item")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductsTable__WEBPACK_IMPORTED_MODULE_3__["default"], {
         products: this.state.products,
+        removeProductFunc: function removeProductFunc(id) {
+          return _this.removeProduct(id);
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 51
+          lineNumber: 61
         },
         __self: this
       })));
@@ -438,6 +394,7 @@ function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
+"";
 
 /***/ }),
 
@@ -452,7 +409,7 @@ module.exports = [{"id":1,"name":"Chu Bomb","price":100},{"id":2,"name":"Normal 
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*****************************!*\
   !*** multi ./pages/shop.js ***!
   \*****************************/
