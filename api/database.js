@@ -1,14 +1,11 @@
 const mysql = require('mysql');
 
+const config = require('./databaseconfig');
+
 module.exports = class MyDatabase {
 
     constructor(){
-        this.con = mysql.createConnection({
-            socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock',
-            user: "root",
-            password: "root",
-            database: 'BombShop',
-        });
+        this.con = mysql.createConnection( config.settings );
 
         this.con.connect(function(err) {
             if (err) {
