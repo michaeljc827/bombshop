@@ -2,34 +2,54 @@ import Header from '../components/Header';
 import Head from 'next/head';
 import ProductsTable from '../components/ProductsTable';
 
-import MockData from '../static/mock-data.json';
-
+import fetch from 'isomorphic-unfetch'
 
 export default class Shop extends React.Component {
 
+    constructor(){
+        super();
+    }
+
+    static async getInitialProps() {
+        const result = await fetch("http://localhost:4000/products")
+        const data = await result.json()
+        return {
+            myData: data
+        }
+    }
+
     componentWillMount(){
         this.setState({
-            "products": MockData,
-            "count": MockData.length,
+            "products": this.props.myData,
+            "count": this.props.myData.length,
             "inputValue": ""
-        })
+        });
     }
 
     addProduct(){
         let data = this.state.products
-        data.push({
+        let newProduct = {
             "id": this.state.products.length+1,
             "name": this.state.inputValue,
             "price": 300
-        })
-
+        }
+        data.push(newProduct)
         this.setState({
             "products": data,
             "count": this.state.products.length+1
         });
+
+        //Update database
+        fetch('http://localhost:4000/products', {
+           method: 'POST',
+           body: JSON.stringify( { product: newProduct} ),
+           headers: { "Content-Type": "application/json" }
+        });
+
     }
 
     updateInput(evt){
+
         let data = this.state.products;
         this.setState({
             "products": data,
@@ -49,7 +69,6 @@ export default class Shop extends React.Component {
 
 
     render() {
-        console.log("Rendering shop with", this.state.products)
         return (
         <div>
             <div className="section container">

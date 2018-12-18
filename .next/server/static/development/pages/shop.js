@@ -233,18 +233,25 @@ var ProductsTable = function ProductsTable(props) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Shop; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/head */ "next/head");
-/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_ProductsTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ProductsTable */ "./components/ProductsTable.js");
-/* harmony import */ var _static_mock_data_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../static/mock-data.json */ "./static/mock-data.json");
-var _static_mock_data_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ../static/mock-data.json */ "./static/mock-data.json", 1);
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "@babel/runtime/regenerator");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Header */ "./components/Header.js");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/head */ "next/head");
+/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _components_ProductsTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/ProductsTable */ "./components/ProductsTable.js");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
+/* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5__);
+
 var _jsxFileName = "/Users/michaelchavez/Desktop/ReactProjects/BombShop/pages/shop.js";
 
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -275,15 +282,15 @@ function (_React$Component) {
   function Shop() {
     _classCallCheck(this, Shop);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Shop).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(Shop).call(this));
   }
 
   _createClass(Shop, [{
     key: "componentWillMount",
     value: function componentWillMount() {
       this.setState({
-        "products": _static_mock_data_json__WEBPACK_IMPORTED_MODULE_4__,
-        "count": _static_mock_data_json__WEBPACK_IMPORTED_MODULE_4__.length,
+        "products": this.props.myData,
+        "count": this.props.myData.length,
         "inputValue": ""
       });
     }
@@ -291,14 +298,25 @@ function (_React$Component) {
     key: "addProduct",
     value: function addProduct() {
       var data = this.state.products;
-      data.push({
+      var newProduct = {
         "id": this.state.products.length + 1,
         "name": this.state.inputValue,
         "price": 300
-      });
+      };
+      data.push(newProduct);
       this.setState({
         "products": data,
         "count": this.state.products.length + 1
+      }); //Update database
+
+      isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5___default()('http://localhost:4000/products', {
+        method: 'POST',
+        body: JSON.stringify({
+          product: newProduct
+        }),
+        headers: {
+          "Content-Type": "application/json"
+        }
       });
     }
   }, {
@@ -326,36 +344,35 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log("Rendering shop with", this.state.products);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 54
+          lineNumber: 73
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "section container",
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 55
+          lineNumber: 74
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 56
+          lineNumber: 75
         },
         __self: this
-      }, "Products in Stock"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Products in Stock"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         style: {
           margin: "10px 0"
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 57
+          lineNumber: 76
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         placeholder: "Item Name",
         onChange: function onChange(evt) {
@@ -363,49 +380,77 @@ function (_React$Component) {
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 58
+          lineNumber: 77
         },
         __self: this
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "button",
         onClick: function onClick() {
           _this.addProduct();
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 59
+          lineNumber: 78
         },
         __self: this
-      }, "Add Item")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_ProductsTable__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, "Add Item")), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_ProductsTable__WEBPACK_IMPORTED_MODULE_4__["default"], {
         products: this.state.products,
         removeProductFunc: function removeProductFunc(id) {
           return _this.removeProduct(id);
         },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 61
+          lineNumber: 80
         },
         __self: this
       })));
     }
+  }], [{
+    key: "getInitialProps",
+    value: function () {
+      var _getInitialProps = _asyncToGenerator(
+      /*#__PURE__*/
+      _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var result, data;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_5___default()("http://localhost:4000/products");
+
+              case 2:
+                result = _context.sent;
+                _context.next = 5;
+                return result.json();
+
+              case 5:
+                data = _context.sent;
+                return _context.abrupt("return", {
+                  myData: data
+                });
+
+              case 7:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, this);
+      }));
+
+      function getInitialProps() {
+        return _getInitialProps.apply(this, arguments);
+      }
+
+      return getInitialProps;
+    }()
   }]);
 
   return Shop;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_1___default.a.Component);
 
 
 "";
-
-/***/ }),
-
-/***/ "./static/mock-data.json":
-/*!*******************************!*\
-  !*** ./static/mock-data.json ***!
-  \*******************************/
-/*! exports provided: 0, 1, default */
-/***/ (function(module) {
-
-module.exports = [{"id":1,"name":"Chu Bomb","price":100},{"id":2,"name":"Normal Bomb","price":10}];
 
 /***/ }),
 
@@ -418,6 +463,28 @@ module.exports = [{"id":1,"name":"Chu Bomb","price":100},{"id":2,"name":"Normal 
 
 module.exports = __webpack_require__(/*! ./pages/shop.js */"./pages/shop.js");
 
+
+/***/ }),
+
+/***/ "@babel/runtime/regenerator":
+/*!*********************************************!*\
+  !*** external "@babel/runtime/regenerator" ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("@babel/runtime/regenerator");
+
+/***/ }),
+
+/***/ "isomorphic-unfetch":
+/*!*************************************!*\
+  !*** external "isomorphic-unfetch" ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
