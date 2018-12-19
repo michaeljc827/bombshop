@@ -1,8 +1,8 @@
 # Ignore everything
 *
+node_modules
 node_modules/
 node_modules/*
-api/databaseconfig.js
 
 #But allow git to go into directory
 !*/
@@ -10,7 +10,7 @@ api/databaseconfig.js
 #and the allow these subdirectories
 !/pages/**
 !/components/**
-!api/**
+!api/*
 !package.json
 !package-lock.json
 !static/**

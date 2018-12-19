@@ -4,6 +4,8 @@ import ProductsTable from '../components/ProductsTable';
 
 import fetch from 'isomorphic-unfetch'
 
+const apiUrl = 'http://127.0.0.1:4000';
+
 export default class Shop extends React.Component {
 
     constructor(){
@@ -11,7 +13,7 @@ export default class Shop extends React.Component {
     }
 
     static async getInitialProps() {
-        const result = await fetch("http://wheresthehorse.com:4000/products")
+        const result = await fetch(apiUrl + "/products")
         const data = await result.json()
  
         return {
@@ -27,13 +29,14 @@ export default class Shop extends React.Component {
         });
     }
 
-    addProduct(){
+    async addProduct(){
+      
         let data = this.state.products
         let newProduct = {
-            "id": this.state.products.length+1,
             "name": this.state.inputValue,
             "price": 300
         }
+
         data.push(newProduct)
         this.setState({
             "products": data,
@@ -41,12 +44,12 @@ export default class Shop extends React.Component {
         });
 
         //Update database
-        fetch('http://wheresthehorse.com:4000/products', {
-           method: 'POST',
-           body: JSON.stringify( { product: newProduct} ),
-           headers: { "Content-Type": "application/json" }
+        let id = await fetch(apiUrl + '/products', {
+            method: 'POST',
+            body: JSON.stringify( { product: newProduct} ),
+            headers: { "Content-Type": "application/json" }
         });
-
+        console.log(id)
     }
 
     updateInput(evt){
@@ -65,6 +68,12 @@ export default class Shop extends React.Component {
         });
         this.setState( {
             "products" : data
+        });
+
+        fetch(apiUrl + '/products', {
+            method: 'DELETE',
+            body: JSON.stringify( { productId: id } ),
+            headers: { "Content-Type": "application/json" }
         });
     }
 
