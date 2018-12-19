@@ -2,6 +2,6 @@
 
 Build with: <br>
 
-$ npm install /n
-$ npm run build /n
-$ npm run start -p 80 /n
+npm install <br>
+npm run build <br>
+npm run start -p 80 
