@@ -1,6 +1,10 @@
 # Ignore everything
 *
-#But not these
-!pages/*
-!api/*
-!components/*
+
+#But allow git to go into directory
+!*/
+
+#and the allow these subdirectories
+!/pages/**
+!/components/**
+!api/**
