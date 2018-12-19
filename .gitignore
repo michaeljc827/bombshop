@@ -1,6 +1,6 @@
 # Ignore everything
 *
 #But not these
-!pages/
-!api/
-!components/
+!pages/*
+!api/*
+!components/*
