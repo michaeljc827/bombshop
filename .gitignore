@@ -1,2 +1,6 @@
-#Ignore test.txt
-test.txt
+# Ignore everything
+*
+#But not these
+!pages/
+!api/
+!components/
