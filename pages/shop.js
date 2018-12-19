@@ -11,7 +11,7 @@ export default class Shop extends React.Component {
     }
 
     static async getInitialProps() {
-        const result = await fetch("http://localhost:4000/products")
+        const result = await fetch("http://wheresthehorse.com:4000/products")
         const data = await result.json()
         return {
             myData: data
@@ -40,7 +40,7 @@ export default class Shop extends React.Component {
         });
 
         //Update database
-        fetch('http://localhost:4000/products', {
+        fetch('http://wheresthehorse.com/products', {
            method: 'POST',
            body: JSON.stringify( { product: newProduct} ),
            headers: { "Content-Type": "application/json" }
