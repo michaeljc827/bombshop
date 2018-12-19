@@ -8,3 +8,5 @@
 !/pages/**
 !/components/**
 !api/**
+!package.json
+!package-lock.json
