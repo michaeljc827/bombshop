@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const config = require('./databaseconfig');
+const config = require('./config/databaseconfig');
 
 module.exports = class MyDatabase {
 
@@ -43,6 +43,15 @@ module.exports = class MyDatabase {
         return new Promise( (resolve) => {
             this.con.query( 'INSERT INTO products (name,price) VALUES ( ? , ? )', [productObject.name,productObject.price], function(error, results, fields) {
                 resolve(results.insertId);
+            });
+        });
+    }
+
+    async deleteProduct(productId){
+        return new Promise( (resolve) => {
+            this.con.query('DELETE FROM products WHERE id = ?',[productId], function(error,results,fields){
+                //TODO: add error catching
+                resolve('OK');
             });
         });
     }
