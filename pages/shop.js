@@ -13,6 +13,16 @@ export default class Shop extends React.Component {
     static async getInitialProps() {
         const result = await fetch("http://wheresthehorse.com:4000/products")
         const data = await result.json()
+        let newProduct = {
+            name: "Test Bomb A",
+            price: 100
+        };
+        fetch('http://wheresthehorse.com:4000/products', {
+           method: 'POST',
+           body: JSON.stringify( { product: newProduct} ),
+           headers: { "Content-Type": "application/json" }
+        });
+
         return {
             myData: data
         }
