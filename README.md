@@ -1,6 +1,6 @@
 # bombshop
 
-Build with: /n
+Build with: <br>
 
 $ npm install /n
 $ npm run build /n
