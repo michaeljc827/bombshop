@@ -2,6 +2,7 @@
 *
 node_modules/
 node_modules/*
+api/databaseconfig.js
 
 #But allow git to go into directory
 !*/
