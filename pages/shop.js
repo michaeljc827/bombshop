@@ -40,7 +40,7 @@ export default class Shop extends React.Component {
         });
 
         //Update database
-        fetch('http://wheresthehorse.com/products', {
+        fetch('http://wheresthehorse.com:4000/products', {
            method: 'POST',
            body: JSON.stringify( { product: newProduct} ),
            headers: { "Content-Type": "application/json" }
