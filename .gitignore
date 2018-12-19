@@ -1,5 +1,7 @@
 # Ignore everything
 *
+node_modules/
+node_modules/*
 
 #But allow git to go into directory
 !*/
