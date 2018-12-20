@@ -1,10 +1,2 @@
-*
-
-!/
-
-!/pages/**
-!/components/**
-!api/*
-!package.json
-!package-lock.json
-!static/**
+.next/
+node_modules/
