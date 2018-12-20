@@ -13,6 +13,9 @@ const Header = () => (
             <Link href="/shop">
                 <a style={linkStyle}>Shop</a>
             </Link>
+            <Link href="/admin">
+                <a style={linkStyle}>Admin</a>
+            </Link>
         </nav>
     </div>
 )

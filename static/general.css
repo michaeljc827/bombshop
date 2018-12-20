@@ -7,6 +7,10 @@ body {
     background: #adf7ff
 }
 
+h2 {
+    color:#0069fd;
+}
+
 .section {
     background: white;
     margin-bottom: 3em;
