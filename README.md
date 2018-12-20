@@ -1,7 +1,7 @@
 # bombshop
 
-Build with: 
+Build with: <br>
 
-$ npm install
-$ npm run build
-$ npm run start -p 80
+npm install <br>
+npm run build <br>
+npm run start -p 80 
