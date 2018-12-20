@@ -84,7 +84,7 @@ export default class Dashboard extends React.Component {
                         <input type="text" placeholder="Item Name" onChange={ evt => { this.updateInput(evt) }} value={this.state.inputValue}/>
                         <button type="button" onClick={() => { this.addProduct() } }>Add Item</button>
                 </div>
-                <ProductsTable products={this.state.products} removeProductFunc={ (id) => this.removeProduct(id) }/>
+                <ProductsTable products={this.state.products} removeProductFunc={ (id) => this.removeProduct(id) } editingMode={true}/>
             </div>
         </div>  
         );
