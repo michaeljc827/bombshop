@@ -14,9 +14,9 @@ var appRouter = function (app) {
   });
 
   app.post("/products", async function(req, res) {
-    console.log("POST: /products", req.body)
-    db.addProduct(req.body.product)
-    res.status(200).send('');
+    let id = await db.addProduct(req.body.product)
+    console.log(id)
+    res.status(200).send(JSON.stringify(id));
   });
 
   app.delete("/products", async function(req, res){
@@ -28,3 +28,4 @@ var appRouter = function (app) {
 }
 
 module.exports = appRouter;
+
