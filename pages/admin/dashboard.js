@@ -1,5 +1,7 @@
 import { Component } from 'react'
-import ProductsTable from '../../components/ProductsTable';
+import AdminProductsTable from '../../components/AdminProductsTable';
+
+import fetch from 'isomorphic-unfetch'
 
 const apiUrl = 'http://127.0.0.1:4000';
 
@@ -84,7 +86,7 @@ export default class Dashboard extends React.Component {
                         <input type="text" placeholder="Item Name" onChange={ evt => { this.updateInput(evt) }} value={this.state.inputValue}/>
                         <button type="button" onClick={() => { this.addProduct() } }>Add Item</button>
                 </div>
-                <ProductsTable products={this.state.products} removeProductFunc={ (id) => this.removeProduct(id) } editingMode={true}/>
+            <AdminProductsTable products={this.state.products} removeProductFunc={ (id) => this.removeProduct(id) }/>
             </div>
         </div>  
         );

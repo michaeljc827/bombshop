@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductsTable = props => {
+const AdminProductsTable = props => {
     return ( 
     <div>
         <table className="table">
@@ -8,7 +8,9 @@ const ProductsTable = props => {
             {
                     props.products.map( (product, i) => {
                         return (
-                            <ProductsTableRow product={product}/>
+                            <tr key={product.id} onClick={ () => { props.removeProductFunc(product.id)} }>
+                                <td>{product.name}</td>
+                            </tr>
                         );
                     })
             }
@@ -19,13 +21,4 @@ const ProductsTable = props => {
 
 };
 
-const ProductsTableRow = props => {
-    return (
-        <tr key={props.product.id} onClick={ () => { alert() } }>
-            <td>{props.product.name}</td>
-        </tr>
-    );
-};
-
-
-export default ProductsTable;
+export default AdminProductsTable;

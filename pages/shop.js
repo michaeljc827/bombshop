@@ -27,7 +27,7 @@ export default class Shop extends React.Component {
         <div>
             <div className="section container">
                 <h2>Products in Stock</h2>
-                <ProductsTable products={this.state.products} editingMode={false}/>
+                <ProductsTable products={this.state.products}/>
             </div>
         </div>
         )
