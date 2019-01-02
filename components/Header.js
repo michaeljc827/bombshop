@@ -10,7 +10,7 @@ const Header = () => (
             <Link href="/">
                 <img className="logo" src="/static/bomb-shop-logo-3.png"/>
             </Link>
-            <Link href="/shop">
+            <Link prefetch href="/shop">
                 <a style={linkStyle}>Shop</a>
             </Link>
             <Link href="/admin">

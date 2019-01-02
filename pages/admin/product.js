@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-unfetch'
+import Router from 'next/router'
 
 import * as config from '../../static/config';
 const apiUrl = config.url;
@@ -49,8 +50,10 @@ export default class ProductPage extends React.Component {
             body: JSON.stringify( { product: updatedProduct } ),
             headers: { "Content-Type": "application/json" }
         });
-        
+
         //TODO: error handling
+        Router.push('/admin/dashboard')
+        
     
     }
 
