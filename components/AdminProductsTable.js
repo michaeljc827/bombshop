@@ -8,7 +8,7 @@ const AdminProductsTable = props => {
             {
                     props.products.map( (product, i) => {
                         return (
-                            <tr key={product.id} onClick={ () => { props.removeProductFunc(product.id)} }>
+                            <tr key={product.id} onClick={ () => { props.handleClickFunc(product.id); } } >
                                 <td>{product.name}</td>
                             </tr>
                         );

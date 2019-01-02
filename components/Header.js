@@ -6,9 +6,9 @@ const linkStyle = {
 
 const Header = () => (
     <div className="container section">
-        <nav className="navbar navbar-expand-lg">
+        <nav className="navbar navbar-expand-md">
             <Link href="/">
-                <img className="logo" src="../static/bomb-shop-logo-3.png"/>
+                <img className="logo" src="/static/bomb-shop-logo-3.png"/>
             </Link>
             <Link href="/shop">
                 <a style={linkStyle}>Shop</a>

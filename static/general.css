@@ -22,3 +22,12 @@ h2 {
 nav {
     background: none;
 }
+
+.product-details-title {
+    color:grey;
+}
+
+.product-details-price {
+    color:black;
+    margin-left:10px;
+}

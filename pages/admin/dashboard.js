@@ -1,9 +1,11 @@
 import { Component } from 'react'
 import AdminProductsTable from '../../components/AdminProductsTable';
+import Router from 'next/router'
 
 import fetch from 'isomorphic-unfetch'
 
-const apiUrl = 'http://127.0.0.1:4000';
+import * as config from '../../static/config';
+const apiUrl = config.url;
 
 export default class Dashboard extends React.Component {
 
@@ -74,6 +76,10 @@ export default class Dashboard extends React.Component {
         });
     }
 
+    handleClick(id){
+        Router.push('/admin/product/'+id);
+    }
+
     render() {
         return (
         <div className="container section">
@@ -86,7 +92,7 @@ export default class Dashboard extends React.Component {
                         <input type="text" placeholder="Item Name" onChange={ evt => { this.updateInput(evt) }} value={this.state.inputValue}/>
                         <button type="button" onClick={() => { this.addProduct() } }>Add Item</button>
                 </div>
-            <AdminProductsTable products={this.state.products} removeProductFunc={ (id) => this.removeProduct(id) }/>
+            <AdminProductsTable products={this.state.products} handleClickFunc={ (id) => this.handleClick(id)} removeProductFunc={ (id) => this.removeProduct(id) }/>
             </div>
         </div>  
         );

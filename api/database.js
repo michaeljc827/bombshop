@@ -16,6 +16,22 @@ module.exports = class MyDatabase {
         });
     }
 
+    async getProduct(productId){
+        return new Promise( (resolve) => {
+            this.con.query('SELECT * FROM products WHERE id = ?',[productId], function(error,results,fields){
+                if (error){
+                    console.log(error);
+                } else {
+                    let product = results[0];
+                    resolve({
+                        'id': product.id,
+                        'name': product.name,
+                        'price': product.price
+                    });
+                }
+            });
+        });
+    }
 
     async getProducts(){
         return new Promise( (resolve) => {
@@ -52,6 +68,21 @@ module.exports = class MyDatabase {
             this.con.query('DELETE FROM products WHERE id = ?',[productId], function(error,results,fields){
                 //TODO: add error catching
                 resolve('OK');
+            });
+        });
+    }
+
+    async updateProduct(productId,product){
+        return new Promise( (resolve) => {
+            let name = product.name;
+            let price = product.price;
+
+            this.con.query('UPDATE products SET name = ?, price = ? WHERE id = ?',[ name,price,productId ], function(error,results,fields){
+                resolve({
+                    'id': productId,
+                    'name': product.name,
+                    'price': product.price
+                });
             });
         });
     }

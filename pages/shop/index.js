@@ -1,10 +1,9 @@
-import Header from '../components/Header';
-import Head from 'next/head';
-import ProductsTable from '../components/ProductsTable';
+import ProductsTable from '../../components/ProductsTable';
 
 import fetch from 'isomorphic-unfetch'
 
-const apiUrl = 'http://127.0.0.1:4000';
+import * as config from '../../static/config';
+const apiUrl = config.url;
 
 export default class Shop extends React.Component {
 
